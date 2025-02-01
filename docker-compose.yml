@@ -8,7 +8,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/moviebackend
+      - .:/app
     environment:
       - DEBUG=0
       - ALLOWED_HOSTS=52.91.196.218
+      - DJANGO_SETTINGS_MODULE=moviebackend.settings  # <-- Add this line
+

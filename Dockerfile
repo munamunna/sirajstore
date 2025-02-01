@@ -5,7 +5,7 @@ FROM python:3.9
 ENV PYTHONUNBUFFERED=1
 
 # Set working directory inside the container
-WORKDIR /moviebackend
+WORKDIR /app
 
 
 # Copy and install dependencies
