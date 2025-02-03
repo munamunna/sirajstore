@@ -3,14 +3,11 @@ version: '3.8'
 services:
   web:
     build: .
-    container_name: django_api
-    restart: always
-    ports:
-      - "8000:8000"
+    command: gunicorn --bind 0.0.0.0:8000 moviebackend.wsgi:application
     volumes:
       - .:/app
+    ports:
+      - "8000:8000"
     environment:
-      - DEBUG=0
-      - ALLOWED_HOSTS=52.91.196.218
-      - DJANGO_SETTINGS_MODULE=moviebackend.settings  # <-- Add this line
-
+      - DJANGO_SETTINGS_MODULE=moviebackend.settings
+    restart: always

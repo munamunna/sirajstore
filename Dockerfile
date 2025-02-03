@@ -1,22 +1,23 @@
 # Use official Python image
 FROM python:3.9
 
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
-
-# Set working directory inside the container
+# Set the working directory inside the container
 WORKDIR /app
 
-
-# Copy and install dependencies
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all project files
+# Copy the entire project
 COPY . .
 
-# Expose port 8000
+# Set the environment variable
+ENV DJANGO_SETTINGS_MODULE=moviebackend.settings
+
+
+
+# Expose the application port
 EXPOSE 8000
 
-# Run migrations and start server
+# Command to start the application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "moviebackend.wsgi:application"]
