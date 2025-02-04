@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moviebackend.wsgi.application'
 
-ALLOWED_HOSTS = ['52.91.196.218', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
